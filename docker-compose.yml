@@ -1,0 +1,14 @@
+version: '3'
+services:
+  registry:
+    image: registry
+    volumes:
+      - "./db:/var/lib/registry"
+      - "../Certificates/dockerStyleCert/IPcerts:/certs"
+    ports:
+      - "443:5000"
+    environment:
+      - "REGISTRY_HTTP_ADDR=0.0.0.0:5000"
+      - "REGISTRY_HTTP_TLS_CERTIFICATE=/certs/selfsigned.crt"
+      - "REGISTRY_HTTP_TLS_KEY=/certs/selfsigned.key"
+    userns_mode: "host"
