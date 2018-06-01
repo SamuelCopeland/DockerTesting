@@ -1,0 +1,10 @@
+version: '3'
+services:
+  server:
+    image: teamcity-server-image-made-by-Dockerfile
+    volumes:
+      - "./data:/data/teamcity_server/datadir"
+      - "./logs:/opt/teamcity/logs"
+    ports:
+      - "8111:8111"
+    userns_mode: "host"
