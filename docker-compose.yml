@@ -4,7 +4,7 @@ services:
     image: registry
     volumes:
       - "./db:/var/lib/registry"
-      - "../Certificates/dockerStyleCert/IPcerts:/certs"
+      - "./certs:/certs"
     ports:
       - "443:5000"
     environment:
